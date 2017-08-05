@@ -33,7 +33,7 @@ globalKeyBinder(KEYS.UP, () => {
 // $FlowFixMe - we know that querySelector(#app) returns an element...
 renderBoard(document.querySelector('#app'), state);
 
-const interval: number = eventLoop(() => {
+const stop = eventLoop(() => {
   if (state.isMoving && !state.gameOver) {
     try {
       state.transition();
@@ -41,7 +41,7 @@ const interval: number = eventLoop(() => {
       // eslint-disable-next-line
       console.log(e);
       state.gameOver = true;
-      clearInterval(interval);
+      stop();
     }
     // $FlowFixMe - we know that querySelector(#app) returns an element...
     renderBoard(document.querySelector('#app'), state);
