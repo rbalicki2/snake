@@ -18,22 +18,22 @@ const state = new GameState(new GameBoard(16, 16));
 state.board.setRandomApple();
 
 globalKeyBinder(KEYS.LEFT, () => {
-  if (state.direction !== 'RIGHT') {
+  if (state.directionAtLastTransition !== 'RIGHT') {
     state.direction = 'LEFT';
   }
 });
 globalKeyBinder(KEYS.RIGHT, () => {
-  if (state.direction !== 'LEFT') {
+  if (state.directionAtLastTransition !== 'LEFT') {
     state.direction = 'RIGHT';
   }
 });
 globalKeyBinder(KEYS.DOWN, () => {
-  if (state.direction !== 'UP') {
+  if (state.directionAtLastTransition !== 'UP') {
     state.direction = 'DOWN';
   }
 });
 globalKeyBinder(KEYS.UP, () => {
-  if (state.direction !== 'DOWN') {
+  if (state.directionAtLastTransition !== 'DOWN') {
     state.direction = 'UP';
   }
 });
@@ -54,5 +54,5 @@ const stop = eventLoop(() => {
     // $FlowFixMe - we know that querySelector(#app) returns an element...
     renderBoard(document.querySelector('#app'), state);
   }
-}, 150);
+}, 120);
 

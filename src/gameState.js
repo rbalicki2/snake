@@ -5,6 +5,7 @@ import { type KeyDirection } from 'src/globalKeyBinder';
 
 export default class GameState {
   direction: ?KeyDirection;
+  directionAtLastTransition: ?KeyDirection;
   board: GameBoard;
   gameOver: boolean = false;
 
@@ -18,6 +19,7 @@ export default class GameState {
 
   transition(): void {
     if (this.isMoving && !this.gameOver) {
+      this.directionAtLastTransition = this.direction;
       // $FlowFixMe - this.isMoving implies this.direction is not null
       this.board.transitionSnakeHead(this.direction);
     }

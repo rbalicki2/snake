@@ -23,6 +23,8 @@
   * (Note that if I had chosen the wrong abstraction, this union type would not have been necessary.)
 * Types are strewn about in a few files. Not ideal, but in a project like this, probably not the end of the world.
 * Didn't commit changes as I went, whoops.
+* Bug that used to exist: you "can't turn 180 degree", but if you quickly (within a single tick) hit a perpendicular direction, then quickly hit the previous direction, you can turn the snake 180 degrees.
+  * The fix (`directionAtLastTransition`) is a bit hacky.
 
 ## Todo
 
