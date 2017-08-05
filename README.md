@@ -2,6 +2,10 @@
 
 > See it at [this website](snake.robertbalicki.com).
 
+## How to run it locally
+
+Clone this repo, `yarn` and `npm start`. `yarn`, `npm` and possibly `flow-bin` need to be installed globally.
+
 ## The good parts
 
 * It works!
