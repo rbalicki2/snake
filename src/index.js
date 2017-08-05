@@ -18,16 +18,24 @@ const state = new GameState(new GameBoard(16, 16));
 state.board.setRandomApple();
 
 globalKeyBinder(KEYS.LEFT, () => {
-  state.direction = 'LEFT';
+  if (state.direction !== 'RIGHT') {
+    state.direction = 'LEFT';
+  }
 });
 globalKeyBinder(KEYS.RIGHT, () => {
-  state.direction = 'RIGHT';
+  if (state.direction !== 'LEFT') {
+    state.direction = 'RIGHT';
+  }
 });
 globalKeyBinder(KEYS.DOWN, () => {
-  state.direction = 'DOWN';
+  if (state.direction !== 'UP') {
+    state.direction = 'DOWN';
+  }
 });
 globalKeyBinder(KEYS.UP, () => {
-  state.direction = 'UP';
+  if (state.direction !== 'DOWN') {
+    state.direction = 'UP';
+  }
 });
 
 // $FlowFixMe - we know that querySelector(#app) returns an element...
