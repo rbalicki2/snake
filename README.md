@@ -1,5 +1,7 @@
 # Snake
 
+> See it at [this website](snake.robertbalicki.com).
+
 ## The good parts
 
 * It works!
@@ -14,6 +16,7 @@
   * Initially, I decided to store the game board as an NxN array of pieces.
   * Instead, a better abstraction would have been to only store the snake as an array of `{row, col}`.
   * As a result, `transitionSnakeHead` in `gameBoard.js` is bloated and complicated. Lookups (`.snakeTailPosition` etc.) are n^2 operations, etc.
+  * There exist flow errors that I didn't fix, due to the bad abstraction!
 * Flow enums done lazily are no good.
   * I a union type, `SquareContents` that is the union of `SnakeHead | SnakeBody | Space | Apple | SnakeTail`. Each item in the enum contains extra information, e.g. `.isEmpty` (determines whether the snake head can transition into it), etc.
   * Instead, I should have made a union type `SquareContents = 'SnakeHead' | 'SnakeBody' | 'Space' | etc`, and had a separate object of type `{ [SquareContents]: auxiliary information }`, where auxiliary information includes `isEmpty`, etc.

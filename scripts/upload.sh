@@ -3,7 +3,7 @@ if [ -z $CIRCLECI ]; then
   exit 1
 fi
 
-S3_BUCKET=type-driven-development
+S3_BUCKET=rb-snake
 S3_BUCKET_FOLDER=$1
 
 if [ -z $1 ]; then
