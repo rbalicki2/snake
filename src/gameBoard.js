@@ -213,16 +213,13 @@ export default class GameBoard {
       newBoard.setRandomApple();
       const { row: tailRow, col: tailCol } = this.snakeTailPosition;
       const currentTail = this.pieces[tailRow][tailCol];
-      console.log('SET RNAOMD APPLE', this.snakeTailPosition, this.snakeHeadPosition, currentTail);
       newBoard.pieces[tailRow][tailCol] = newTail(
         currentTail.directionToNextPiece || direction
       );
 
       if (currentTail.type !== 'SnakeHead') {
         const tailOffset = directionsToRowColOffset[currentTail.directionToNextPiece];
-        console.log(tailOffset);
         const tailMovedTo = newBoard.pieces[tailRow + tailOffset.row][tailCol + tailOffset.col];
-        console.log(tailMovedTo);
         tailMovedTo.type = 'SnakeBody';
         tailMovedTo.isEmpty = false;
       }
